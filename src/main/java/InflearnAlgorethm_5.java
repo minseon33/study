@@ -3,22 +3,17 @@ import java.util.Scanner;
 
 
 /**
- * 3. 단어 뒤집기
- * 문제: N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하시오.
- * 입력: 첫 줄에 자연수 N(3<= N <=20)이 주어집니다.
- *      두번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다. 단어는 영어 알파벳으로만 구성되어 있습니다.
- * 출력: N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.
+ * 5. 단어 뒤집기
+ * 문제: 영어 알파벳과 특수문자로 구성된 문자열이 주어지면 영어 알파벳만 뒤집고,
+ *      특수문자는 자기 자리에 그대로 있는 문자열을 만들어 출력하는 프로그램을 작성하세요.
+ * 입력: 첫 줄에 길이가 100을 넘지 않는 문자열이 주어집니다.
+ * 출력: 첫 줄에 알파벳만 뒤집힌 문자열을 출력합니다.
  * 예시:
- *      3
- *      good
- *      Time
- *      Big
+ *      a#b!fw!d@s
  * 에시출력:
- *          doog
- *          emiT
- *          giB
+ *          s#d!wf!b@a
  */
-public class InflearnAlgorethm_4 {
+public class InflearnAlgorethm_5 {
     public ArrayList<String> solution(int n , String[] str){
 
         //StringBuilder 사용해서 한 풀이
@@ -50,7 +45,7 @@ public class InflearnAlgorethm_4 {
     }
 
     public static void main(String[] args) {
-        InflearnAlgorethm_4 T = new InflearnAlgorethm_4();
+        InflearnAlgorethm_5 T = new InflearnAlgorethm_5();
         //1. 스캐너로 첫번째 값 받아오기
         Scanner kb = new Scanner(System.in);
         int n =kb.nextInt();

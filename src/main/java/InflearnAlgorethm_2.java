@@ -1,48 +1,49 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
 /**
- * 1. 문자찾기
- * 문제: 한 개의 문자열을 입력받고, 특정 문자를 입력받아 해당 특정문자가 입력받은 문자열에 몇 개 존재하는지 알아내는 프로그램을 작성하세요
- *      대소문자를 구분하지 않습니다. 문자열의 길이는 100을 넘지 않습니다.
- * 입력: 첫 줄에 문자열이 주어지고, 두 번째 줄에 ㅁ누자가 주어진다.
- *      문자열은 영어 알파벳으로만 구성되어 있습니다.
+ * 2. 대소문자 변환
+ * 문제: 대문자와 소문자가 같이 존재하는 문자열을 입력받아 대문자는 소문자로 소문자는 대문자로 변환하여 출력하는 프로그램을 작성하세요.
+ * 입력: 첫 줄에 문자열이 입력된다. 문자열의 길이는 100을 넘지 않습니다.
+ *      문자열은 영어 알파벱으로만 구성되어있습니다.
+ * 출력: 첫 줄에 대문자는 소문자로, 소문자는 대문자로 변환된 문자열을 출력합니다.
  */
-public class InflearnAlgorethm_1 {
-    public int solution(String str , char t){
-        //1. 들어온 값들을 대문자로 다 바꿔준다.
-        //2. for문을 돌면서 b가 포함되어있는지 찾아준다.
-        //3, 들어있는게 있을때마다 카운트를 하나씩 올려준다.
+public class InflearnAlgorethm_2 {
+    public String solution(String str){
+        //1. 들어온 문자열의 문자를 하나하나 for문 돌면서
+        //2. 문자가 대문자인지 소문자인지 비교해서 바꿔준다.
+        //3. 바꿔준 문자를 AttyList에 저장.
 
-        int count = 0;
-        str = str.toUpperCase();
-        t = Character.toUpperCase(t);
-        System.out.println("str : " + str + " ," + " t : " + t);
+//        ArrayList result = new ArrayList();
+        String result = "";
+        StringBuffer result2 = new StringBuffer();
 
-//        for(int i=0; i<str.length();i++){
-//            if(str.charAt(i) == t){
-//                count+=1;
-//            }
-//        }
         //향상된 for문
 
         for (char x:str.toCharArray()) {
-            if(x==t){
-                count+=1;
+            if(Character.isUpperCase(x)){
+                result2.append(Character.toLowerCase(x));
+                result+=Character.toLowerCase(x);
+            }else {
+                result2.append(Character.toUpperCase(x));
+                result+=Character.toUpperCase(x);
             }
         }
 
-        return count;
+        System.out.println("결과 = result2.toString() : " + result2);
+        System.out.println("결과2 = result.toString() : " + result);
+
+//        return result2.toString();
+        return result;
     }
 
     public static void main(String[] args) {
-        InflearnAlgorethm_1 T = new InflearnAlgorethm_1();
+        InflearnAlgorethm_2 T = new InflearnAlgorethm_2();
         //1. 스캐너로 첫번째 값 받아오기
         Scanner kb = new Scanner(System.in);
-        String a = kb.nextLine();
-        //2. 스캐너로 두번째 값 받아오기
-        char b = kb.next().charAt(0);
-        //3. 함수실행
-        System.out.println(T.solution(a,b));
+        String a = kb.nextLine(); //next()랑 nextLine() 차이가 뭔지..?
+        //2. 함수실행
+        System.out.println(T.solution(a));
     }
 }

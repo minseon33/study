@@ -3,47 +3,63 @@ import java.util.Scanner;
 
 
 /**
- * 2. 대소문자 변환
- * 문제: 대문자와 소문자가 같이 존재하는 문자열을 입력받아 대문자는 소문자로 소문자는 대문자로 변환하여 출력하는 프로그램을 작성하세요.
- * 입력: 첫 줄에 문자열이 입력된다. 문자열의 길이는 100을 넘지 않습니다.
- *      문자열은 영어 알파벱으로만 구성되어있습니다.
- * 출력: 첫 줄에 대문자는 소문자로, 소문자는 대문자로 변환된 문자열을 출력합니다.
+ * 3. 문장 속 단어
+ * 문제: 한개의 문장이 주어지면 그 문장 속에서 가장 긴 단어를 출력하는 프로그램을 작성하세요
+ *      문장속의 각 단어는 공백으로 구분됩니다.
+ * 입력: 첫 줄에 길이가 100을 넘지 않는 한 개의 문장이 주어집니다. 문장은 영어 알파벳으로만 구성되어 있습니다.
+ * 출력: 첫 줄에 가장 긴 단어를 출력한다. 가장 길이가 긴 단어가 여러개일 경우 문장속에서 가장 앞쪽에 위치한 단어를 답으로 합니다.
+ * 예시: it is time to study.
+ * 에시출력: study
  */
-public class InflearnAlgorethm_2 {
+public class InflearnAlgorethm_3 {
     public String solution(String str){
-        //1. 들어온 문자열의 문자를 하나하나 for문 돌면서
-        //2. 문자가 대문자인지 소문자인지 비교해서 바꿔준다.
-        //3. 바꿔준 문자를 AttyList에 저장.
+        //1. 들어온 문자열의 문자를 공백을 기준으로 잘라서 ArrayList에 담는다.
+        //2. for문을 돌려서 count 숫자보다 길이가 크면 result에 저장한다.
 
-//        ArrayList result = new ArrayList();
+        int max = Integer.MIN_VALUE;
         String result = "";
-        StringBuffer result2 = new StringBuffer();
-
-        //향상된 for문
-
-        for (char x:str.toCharArray()) {
-            if(Character.isUpperCase(x)){
-                result2.append(Character.toLowerCase(x));
-                result+=Character.toLowerCase(x);
-            }else {
-                result2.append(Character.toUpperCase(x));
-                result+=Character.toUpperCase(x);
+        //1. 들어온 문자열의 문자를 공백을 기준으로 잘라서 List에 담는다.
+        String[] s = str.split(" ");
+        //2. for문을 돌려서 count 숫자보다 길이가 크면 result에 저장한다.
+        for (String x : s) {
+            int len = x.length();
+            if (len > max) {
+                max = len;
+                result = x;
             }
         }
 
-        System.out.println("결과 = result2.toString() : " + result2);
-        System.out.println("결과2 = result.toString() : " + result);
+        System.out.println("결과 = result.toString() : " + result);
 
 //        return result2.toString();
+        return result.toString();
+    }
+    public String solution2(String str){
+        //indexOf 랑 subString 사용해서 풀어보기
+        int max = Integer.MIN_VALUE, pos;
+        String result = "";
+        while ((pos = str.indexOf(" ")) != -1){
+            String tmp = str.substring(0,pos);
+            int len=tmp.length();
+            if(len>max){
+                max=len;
+                result=tmp;
+            }
+            str=str.substring(pos+1);
+        }
+        if(str.length() > max){
+            result = str;
+        }
         return result;
     }
 
     public static void main(String[] args) {
-        InflearnAlgorethm_2 T = new InflearnAlgorethm_2();
+        InflearnAlgorethm_3 T = new InflearnAlgorethm_3();
         //1. 스캐너로 첫번째 값 받아오기
         Scanner kb = new Scanner(System.in);
         String a = kb.nextLine(); //next()랑 nextLine() 차이가 뭔지..?
         //2. 함수실행
-        System.out.println(T.solution(a));
+        System.out.println(T.solution2(a));
     }
+
 }

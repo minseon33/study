@@ -2,7 +2,9 @@ package algorithomStudy;
 
 import java.util.Stack;
 
-public class Practice_230320 {
+//이상한 문자 만들기
+// https://school.programmers.co.kr/learn/courses/30/lessons/12930?language=java
+public class Practice_230320_02 {
 
     public String solution(String s) {
         //공백을 기준으로 문자열을 잘라서 배열에 넣기
@@ -44,8 +46,9 @@ public class Practice_230320 {
         return answer;
 }
     public static void main(String[] args) {
-        Practice_230320 t = new Practice_230320();
+        Practice_230320_02 t = new Practice_230320_02();
         System.out.println(t.solution("try hello world"));
-
+        //공백이 두개 이상인거 어떻게 하는거지..?
+        System.out.println(t.solution("try  hello  world"));
     }
 }
