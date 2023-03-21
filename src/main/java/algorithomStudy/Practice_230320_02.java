@@ -26,6 +26,7 @@ public class Practice_230320_02 {
         for(int i = 0; i<array.length;i++){
             //단어 글자 하나하나 비교해서 대문자와 소문자로 바꿔주기
             for(int x = array[i].toCharArray().length; x > 0; x--){
+
                 if((x-1)%2 == 0){
                     //스택에 담아주기
                     stack.push(Character.toUpperCase(array[i].toCharArray()[x-1]));
@@ -38,6 +39,7 @@ public class Practice_230320_02 {
             for (int a = 0; a<array[i].length();a++){
                 answer2.append(stack.pop());
             }
+            //단어 끝에 공백으로 구분해주고,
             answer2.append(" ");
         }
         //마지막 공백 제거해주기
