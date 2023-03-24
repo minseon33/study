@@ -3,8 +3,8 @@ package algorithomStudy;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-//같은 숫자는 싫어
-// https://school.programmers.co.kr/learn/courses/30/lessons/12906
+//서울에서 김서방 찾기
+// https://school.programmers.co.kr/learn/courses/30/lessons/12919
 public class Practice_230324_02 {
     public String solution(String[] seoul) {
         String answer = "";
