@@ -1,3 +1,5 @@
+package InflearnAlgorethm.Array;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +16,7 @@ import java.util.Scanner;
  * 에시출력:
  *        7 9 6 12
  */
-public class InflearnAlgorethm_13 {
+public class InflearnAlgorethm_1 {
     public ArrayList<Integer> solution(int n, int[] arr){
         ArrayList<Integer> answer = new ArrayList<>();
         answer.add(arr[0]);
@@ -30,7 +32,7 @@ public class InflearnAlgorethm_13 {
 
 
     public static void main(String[] args) {
-        InflearnAlgorethm_13 T = new InflearnAlgorethm_13();
+        InflearnAlgorethm_1 T = new InflearnAlgorethm_1();
         //1. 스캐너로 첫번째 값 받아오기
         Scanner kb = new Scanner(System.in);
         int n =kb.nextInt();

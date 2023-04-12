@@ -1,4 +1,5 @@
-import java.util.Calendar;
+package InflearnAlgorethm.String;
+
 import java.util.Scanner;
 
 
