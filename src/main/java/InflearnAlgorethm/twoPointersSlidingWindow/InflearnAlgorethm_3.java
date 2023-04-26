@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 
 /**
- * 2. 최대 매출 ( 슬라이딩 윈도우)
+ * 3. 최대 매출 ( 슬라이딩 윈도우)
  */
 public class InflearnAlgorethm_3 {
     public int solution(int n, int k, int[] a) {
