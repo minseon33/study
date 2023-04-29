@@ -1,7 +1,6 @@
 package InflearnAlgorethm.HashMapTreeSet;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -50,10 +49,10 @@ public class InflearnAlgorethm_3 {
         ArrayList<Integer> answer = new ArrayList<>();
         HashMap<Integer, Integer> map = new HashMap<>();
         int lt = 0;
-        for (int i = 0; i < k; i++) {
+        for (int i = 0; i < k-1; i++) {
             map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
         }
-        
+
         for (int rt = k - 1; rt < n; rt++) {
             map.put(arr[rt], map.getOrDefault(arr[rt], 0) + 1);
             answer.add(map.size());
