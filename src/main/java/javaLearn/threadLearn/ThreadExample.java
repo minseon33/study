@@ -83,6 +83,7 @@ public class ThreadExample {
             Thread.sleep(500);
         }catch (InterruptedException e){
             e.printStackTrace();
+            //커밋연습
         }
         log.trace("작업4 종료");
         log("작업4 종료");
