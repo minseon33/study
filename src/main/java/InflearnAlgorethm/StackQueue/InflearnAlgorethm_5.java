@@ -3,7 +3,7 @@ package InflearnAlgorethm.StackQueue;
 import java.util.Scanner;
 import java.util.Stack;
 
-//4. 후위식 연산
+//5. 쇠막대기
 public class InflearnAlgorethm_5 {
 
     public int solution(String str) {
