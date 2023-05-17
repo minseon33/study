@@ -1,21 +1,23 @@
 package InflearnAlgorethm.SortingAndSearching;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 
 /**
- * 5. 중복확인
+ * 6. 장난꾸러기
  */
-public class InflearnAlgorethm_5 {
+public class InflearnAlgorethm_6 {
 
-    public String solution(int n, int[] arr) {
-        String answer = "U";
-        Arrays.sort(arr);
+    public ArrayList<Integer> solution(int n, int[] arr) {
+        ArrayList<Integer> answer = new ArrayList<>();
+        int[] tmp = arr.clone();
+        Arrays.sort(tmp);
 
-        for (int i = 1; i <n ; i++) {
-            if(arr[i]==arr[i-1]){
-                return "D";
+        for (int i = 0; i < n; i++) {
+            if(arr[i]!= tmp[i]){
+                answer.add(i+1);
             }
         }
         return answer;
@@ -23,7 +25,7 @@ public class InflearnAlgorethm_5 {
 
 
     public static void main(String[] args) {
-        InflearnAlgorethm_5 T = new InflearnAlgorethm_5();
+        InflearnAlgorethm_6 T = new InflearnAlgorethm_6();
         //1. 스캐너로 첫번째 값 받아오기
         Scanner kb = new Scanner(System.in);
         int n = kb.nextInt();
