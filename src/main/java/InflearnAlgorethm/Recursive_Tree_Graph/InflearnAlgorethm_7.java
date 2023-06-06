@@ -1,24 +1,34 @@
 package InflearnAlgorethm.Recursive_Tree_Graph;
 
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 7. 이진트리 순회(BFS) 넓이 우선 탐색
- *
+ * 이거 이해 안된다. 다시 한번 듣자.
  */
 
 public class InflearnAlgorethm_7 {
 
     Node root;
 
-    public void DFS(Node root) {
-        if(root==null) return;
-        else {
-            //여기서 System.out.print(root.data + " "); 하면 전위순회
-            DFS(root.lt);
-            System.out.print(root.data + " ");
-            //여기서 System.out.print(root.data + " "); 하면 중위순회
-            DFS(root.rt);
-            //여기서 System.out.print(root.data + " "); 하면 후위순회
+    public void BFS(Node root) {
+        Queue<Node> Q = new LinkedList<>();
+        Q.offer(root);
+        int L=0;
+
+        while (!Q.isEmpty()){
+            int len=Q.size();
+            System.out.print(L + " :  ");
+            for (int i = 0; i < len; i++) {
+                Node cur = Q.poll();
+                System.out.print(cur.data + " ");
+                if(cur.lt!=null) Q.offer(cur.lt);
+                if(cur.rt!=null) Q.offer(cur.rt);
+            }
+            L++;
+            System.out.println();
         }
     }
 
