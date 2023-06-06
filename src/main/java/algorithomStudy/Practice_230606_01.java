@@ -17,7 +17,7 @@ public class Practice_230606_01 {
         Set<Integer> sortArr2 = new HashSet<>(Arrays.asList(arr.clone()));
         Integer[] sortArr = sortArr2.toArray(new Integer[0]);
 
-        Arrays.sort(sortArr); //정렬해줬어
+        Arrays.sort(sortArr);
 
         for (int x:arr) {
             count=0;
@@ -28,13 +28,38 @@ public class Practice_230606_01 {
                 }else if(a<x){
                     count++;
                 }
-            } // 대충 이렇게 포문 돌려서
+            }
         }
 
         System.out.println("answer : " + answer.toString());
 
         return answer;
     }
+
+
+    public ArrayList<Integer> solution2(int n, Integer[] arr) {
+        int count = 0;
+        ArrayList<Integer> answer = new ArrayList<>();
+        Integer[] sortArr = arr.clone();
+        HashMap<Integer,Integer> map = new HashMap<>();
+
+        Arrays.sort(sortArr);
+
+        for (int i = 0; i < sortArr.length; i++) {
+            if(!map.containsKey(sortArr[i])){
+                map.put(sortArr[i],count);
+                count++;
+            }
+        }
+
+
+        for (Integer x:arr) {
+            answer.add(map.get(x));
+        }
+
+        return answer;
+    }
+
 
     public static void main(String[] args) throws IOException {
         Practice_230606_01 t = new Practice_230606_01();
@@ -46,7 +71,7 @@ public class Practice_230606_01 {
             arr[i] = kb.nextInt();
         }
 
-        for (int x: t.solution(n,arr)) {
+        for (int x: t.solution2(n,arr)) {
             System.out.print(x + " ");
         }
 
