@@ -7,6 +7,8 @@ import java.util.*;
 /**
  * 좌표압축
  * https://www.acmicpc.net/problem/18870
+ *
+ * (자꾸 시간초과 뜸.. 다시 풀어보기)
  */
 public class Practice_230606_01 {
 
@@ -74,7 +76,5 @@ public class Practice_230606_01 {
         for (int x: t.solution2(n,arr)) {
             System.out.print(x + " ");
         }
-
-
     }
 }

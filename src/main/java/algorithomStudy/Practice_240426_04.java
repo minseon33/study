@@ -1,27 +1,36 @@
 package algorithomStudy;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 약수의 합
  * https://school.programmers.co.kr/learn/courses/30/lessons/12928#qna
  */
-public class Practice_240426_03 {
-    public static int solution(int n) {
-        int answer = 0;
-        for (int i = 1; i < n+1; i++) {
-            int result = n % i;
-            if(result==0){
-                answer += i;
+public class Practice_240426_04 {
+    public static String solution(String s) {
+        String answer = "";
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        String[] split = s.split(" ");
+        for (String s1 :split) {
+            int i = Integer.parseInt(s1);
+            if(i<min){
+                min = i;
+            }
+            if(i>max){
+                max=i;
             }
         }
-
+        answer = min +" "+max;
         return answer;
     }
 
     public static void main(String[] args) throws IOException {
-        int s = 12;
-        int s1 = 5;
-        System.out.println(solution(s1));
+        String s = "1 2 3 4";
+        String s1 = "-1 -2 -3 -4";
+        System.out.println(solution(s));
 
     }
 

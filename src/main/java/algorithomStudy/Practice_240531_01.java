@@ -1,107 +1,64 @@
 package algorithomStudy;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 /**
- * 문자열 정렬하기 (2)
- * https://school.programmers.co.kr/learn/courses/30/lessons/120911
+ * 문자열을 정수로 바꾸기
+ * https://school.programmers.co.kr/learn/courses/30/lessons/12925
  */
-public class Practice_240430_01 {
+public class Practice_240531_01 {
 
-    //선택정렬 버전
-    public static String solution(String my_string) {
-        Map<Character,Integer> alphabetSequence = new HashMap<>();
-        Character[] alphabetList = {'a','b','c','d','e','f','g', 'h','i','j','k','l','m','n',
-                'o','p','q','r','s','t','u', 'v','w','x','y','z'};
-        String answer = "";
 
-        for (int i = 0; i < alphabetList.length; i++) {
-            alphabetSequence.put(alphabetList[i],i);
+    public static int solution(String my_string) {
+        Map<String,Integer> numberSequence = new HashMap<>();
+        String number = "0123456789";
+        String[] split1 = number.split("");
+        for(int i = 0; i<split1.length; i++){
+            numberSequence.put(split1[i],i);
         }
-        String lowerCase = my_string.toLowerCase(Locale.ROOT);
+        int answer=0;
+        String[] split = my_string.split("");
 
-        char[] charArray = lowerCase.toCharArray();
-        int[] index = new int[charArray.length];
+        if(split[0].equals("-")){
 
-        for (int i = 0; i < charArray.length; i++) {
-            Integer integer = alphabetSequence.get(charArray[i]);
-            index[i] = integer;
-        }
-
-        //index 안에 alphabetList의 인덱스번호들이 들어있다. -> 이것을 정렬해서 만들어야 함
-        //정렬 방법 : 선택정렬, 버블정렬, 퀵정렬 다 사용해보기
-        //선택정렬
-        for (int i = 0; i < index.length; i++) {
-            int minIndex = i;
-            for (int j = i+1; j < index.length; j++) {
-                if(index[i] > index[j]){
-                    minIndex = j;
-
-                    int temp = index[minIndex];
-                    index[minIndex] = index[i];
-                    index[i] = temp;
-                }
+            for(int i=1; i<split.length;i++){
+                Integer integer = numberSequence.get(split[i]) * (int) Math.pow(10, split.length-i - 1);
+                answer+=integer;
             }
-        }
-        //정렬된 인덱스로 문자열 뽑기
-        for (int i:index) {
-            answer+=alphabetList[i];
+            return answer * -1;
+
+        }else if(split[0].equals("+")){
+            for(int i=1; i<split.length;i++){
+                Integer integer = numberSequence.get(split[i]) * (int) Math.pow(10, split.length-i - 1);
+                answer+=integer;
+            }
+            return answer;
+
+        }else {
+            for(int i=0; i<split.length;i++){
+                Integer integer = numberSequence.get(split[i]) * (int) Math.pow(10, split.length-1-i);
+                answer+=integer;
+            }
+
         }
 
         return answer;
     }
 
-
-    //버블정렬 버전
-    public static String solution2(String my_string) {
-        Map<Character,Integer> alphabetSequence = new HashMap<>();
-        Character[] alphabetList = {'a','b','c','d','e','f','g', 'h','i','j','k','l','m','n',
-                'o','p','q','r','s','t','u', 'v','w','x','y','z'};
-        String answer = "";
-
-        for (int i = 0; i < alphabetList.length; i++) {
-            alphabetSequence.put(alphabetList[i],i);
-        }
-        String lowerCase = my_string.toLowerCase(Locale.ROOT);
-
-        char[] charArray = lowerCase.toCharArray();
-        int[] index = new int[charArray.length];
-
-        for (int i = 0; i < charArray.length; i++) {
-            Integer integer = alphabetSequence.get(charArray[i]);
-            index[i] = integer;
-        }
-
-        //index 안에 alphabetList의 인덱스번호들이 들어있다. -> 이것을 정렬해서 만들어야 함
-        //정렬 방법 : 버블정렬, 퀵정렬 다 사용해보기
-        //선택정렬
-        for (int i = 0; i < index.length; i++) {
-
-        }
-        //정렬된 인덱스로 문자열 뽑기
-        for (int i:index) {
-            answer+=alphabetList[i];
-        }
-
-        return answer;
-    }
 
     public static void main(String[] args) throws IOException {
-        String s = "Bcad";
-        String s1 = "heLLo";
-        String s2 = "Python";
-        //선택정렬 버전
+        String s = "-1234";
+        String s1 = "+1234";
+        String s2 = "1234";
+
         System.out.println(solution(s));
         System.out.println(solution(s1));
         System.out.println(solution(s2));
 
-        //버블정렬 버전
-        System.out.println(solution2(s));
-        System.out.println(solution2(s1));
-        System.out.println(solution2(s2));
-
+        System.out.println(solution(s));
+        System.out.println(solution(s1));
+        System.out.println(solution(s2));
 
     }
 

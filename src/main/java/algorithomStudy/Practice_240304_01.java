@@ -2,78 +2,61 @@ package algorithomStudy;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 /**
- * N개의 최소공배수
- * https://school.programmers.co.kr/learn/courses/30/lessons/12953
+ * 네트워크
+ * https://school.programmers.co.kr/learn/courses/30/lessons/43162
  */
-public class Practice_240301_02 {
+public class Practice_240304_01 {
 
-    public int solution(int[] arr) {
-        // arr = [2,6,8,14]
-        boolean isValid = true;
-        int answer = 1;
-        List<Integer> number = new ArrayList<>();
-        int number2=1;
-        for (int i = 0; i < arr.length; i++) {
-            if (solution2(arr, 2)) {
-                for (int j = 0; j < arr.length; j++) {
-                    arr[j] = arr[j] / 2;
-                }
-                number.add(2);
-                isValid = true;
-                // arr = 1,3,4,7
+    /**
+     * 런타임 에러 생김.. 근데 어떻게 동작하는지는 알 것 같음...
+     * @param n
+     * @param computers
+     * @return
+     */
+    public static int solution(int n, int[][] computers) {
+        int answer = 0;
 
-            } else if (solution2(arr, 3)) {
-                for (int j = 0; j < arr.length; j++) {
-                    arr[j] = arr[j] / 3;
-                }
-                isValid = true;
-            } else if(solution2(arr, 5)){
-                for (int j = 0; j < arr.length; j++) {
-                    arr[j] = arr[j] / 5;
-                }
-                isValid = true;
+        boolean[] visited = new boolean[n];
+        Stack<Integer> stack = new Stack<>();
 
-            }else {
-                isValid = false;
-                break;
+        for(int i = 0; i <computers.length; i++){
+            if(visited[i]){
+                continue;
+            }
+
+            stack.push(i);
+            answer++;
+
+            while (!stack.isEmpty()){
+                int cur = stack.pop();
+
+                if(visited[cur]){
+                    continue;
+                }
+
+                visited[cur] = true;
+
+                int[] computer = computers[cur];
+
+                for(int j = 0; j<computer.length;j++){
+                    if(visited[j] || computer[j]==0){
+                        continue;
+                    }
+                    stack.push(j);
+                }
             }
         }
-
-        if(isValid == false){
-            for (int s : arr) {
-                answer *= s;
-            }
-            for (int s : number){
-                number2 *= s;
-            }
-        }
-
-        return answer*number2;
+        return answer;
     }
 
-    public boolean solution2(int[] arr, int n) {
-        boolean isValid = false;
-        for (int s : arr) {
-            //arr = [2,6,8,14]
-            if (s % n == 0) {
-                isValid = true;
-            } else {
-                return false;
-            }
-        }
-        return isValid;
-    }
 
     public static void main(String[] args) throws IOException {
+        int arr[][] = {{1,1,0},{1,1,0},{0,0,1}};
+        System.out.println(solution(3,arr));
 
-        int[] arr = {2,6,8,14};
-        int solution = solution(arr);
-
-        System.out.println(solution);
 
     }
 }

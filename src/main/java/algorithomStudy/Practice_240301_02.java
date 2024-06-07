@@ -2,42 +2,75 @@ package algorithomStudy;
 
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- *  피보나치 수
- *  https://school.programmers.co.kr/learn/courses/30/lessons/12945
+ * N개의 최소공배수
+ * https://school.programmers.co.kr/learn/courses/30/lessons/12953
  */
-public class Practice_240301_01 {
+public class Practice_240301_02 {
 
-    public int solution(int n) {
-        int b = 0;
-        int l = 1;
-        int r = 0;
+    public int solution(int[] arr) {
+        // arr = [2,6,8,14]
+        boolean isValid = true;
+        int answer = 1;
+        List<Integer> number = new ArrayList<>();
+        int number2=1;
+        for (int i = 0; i < arr.length; i++) {
+            if (solution2(arr, 2)) {
+                for (int j = 0; j < arr.length; j++) {
+                    arr[j] = arr[j] / 2;
+                }
+                number.add(2);
+                isValid = true;
+                // arr = 1,3,4,7
 
+            } else if (solution2(arr, 3)) {
+                for (int j = 0; j < arr.length; j++) {
+                    arr[j] = arr[j] / 3;
+                }
+                isValid = true;
+            } else if(solution2(arr, 5)){
+                for (int j = 0; j < arr.length; j++) {
+                    arr[j] = arr[j] / 5;
+                }
+                isValid = true;
 
-        for (int i = 1; i < n; i++) {
-            b = l;
-            l = r+l;
-            r = b;
+            }else {
+                isValid = false;
+                break;
+            }
         }
-        int answer = l+r;
-        return answer;
+
+        if(isValid == false){
+            for (int s : arr) {
+                answer *= s;
+            }
+            for (int s : number){
+                number2 *= s;
+            }
+        }
+
+        return answer*number2;
     }
 
+    public boolean solution2(int[] arr, int n) {
+        boolean isValid = false;
+        for (int s : arr) {
+            //arr = [2,6,8,14]
+            if (s % n == 0) {
+                isValid = true;
+            } else {
+                return false;
+            }
+        }
+        return isValid;
+    }
 
     public static void main(String[] args) throws IOException {
-        Practice_230606_01 t = new Practice_230606_01();
-        Scanner kb = new Scanner(System.in);
-        int n = kb.nextInt();
-        Integer[] arr = new Integer[n];
 
-        for (int i = 0; i < n; i++) {
-            arr[i] = kb.nextInt();
-        }
+        int[] arr = {2,6,8,14};
 
-        for (int x: t.solution2(n,arr)) {
-            System.out.print(x + " ");
-        }
     }
 }
