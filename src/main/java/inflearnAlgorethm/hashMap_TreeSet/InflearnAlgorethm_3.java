@@ -1,4 +1,4 @@
-package InflearnAlgorethm.HashMap_TreeSet;
+package inflearnAlgorethm.hashMap_TreeSet;
 
 import java.util.ArrayList;
 import java.util.HashMap;

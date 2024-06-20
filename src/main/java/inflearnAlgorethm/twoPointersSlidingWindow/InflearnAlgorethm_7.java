@@ -1,4 +1,4 @@
-package InflearnAlgorethm.twoPointersSlidingWindow;
+package inflearnAlgorethm.twoPointersSlidingWindow;
 
 import java.util.Scanner;
 

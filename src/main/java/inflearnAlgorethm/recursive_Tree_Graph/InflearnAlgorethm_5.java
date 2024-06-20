@@ -1,7 +1,5 @@
-package InflearnAlgorethm.Recursive_Tree_Graph;
+package inflearnAlgorethm.recursive_Tree_Graph;
 
-
-import java.sql.SQLOutput;
 
 /**
  * 5. 이진트리 순회(DFS) 깊이 우선 탐색

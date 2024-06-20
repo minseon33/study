@@ -1,4 +1,4 @@
-package InflearnAlgorethm.Array;
+package inflearnAlgorethm.array;
 
 import java.util.Scanner;
 

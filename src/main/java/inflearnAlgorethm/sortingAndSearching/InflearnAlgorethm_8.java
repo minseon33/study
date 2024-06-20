@@ -1,6 +1,5 @@
-package InflearnAlgorethm.SortingAndSearching;
+package inflearnAlgorethm.sortingAndSearching;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 

@@ -1,7 +1,6 @@
-package InflearnAlgorethm.twoPointersSlidingWindow;
+package inflearnAlgorethm.twoPointersSlidingWindow;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 

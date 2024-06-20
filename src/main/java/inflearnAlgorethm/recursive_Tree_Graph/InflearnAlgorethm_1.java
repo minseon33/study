@@ -1,7 +1,4 @@
-package InflearnAlgorethm.Recursive_Tree_Graph;
-
-import java.sql.SQLOutput;
-import java.util.Scanner;
+package inflearnAlgorethm.recursive_Tree_Graph;
 
 
 /**

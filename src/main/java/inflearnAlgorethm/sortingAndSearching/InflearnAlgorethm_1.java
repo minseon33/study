@@ -1,7 +1,6 @@
-package InflearnAlgorethm.SortingAndSearching;
+package inflearnAlgorethm.sortingAndSearching;
 
 import java.util.Scanner;
-import java.util.Stack;
 
 
 /**

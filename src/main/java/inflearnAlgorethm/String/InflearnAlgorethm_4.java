@@ -1,4 +1,4 @@
-package InflearnAlgorethm.String;
+package inflearnAlgorethm.String;
 
 import java.util.ArrayList;
 import java.util.Scanner;

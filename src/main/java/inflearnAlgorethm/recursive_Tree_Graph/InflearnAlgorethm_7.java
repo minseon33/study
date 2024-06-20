@@ -1,4 +1,4 @@
-package InflearnAlgorethm.Recursive_Tree_Graph;
+package inflearnAlgorethm.recursive_Tree_Graph;
 
 
 import java.util.LinkedList;
