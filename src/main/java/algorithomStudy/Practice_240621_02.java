@@ -20,13 +20,11 @@ public class Practice_240621_02 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int a = Integer.parseInt(br.readLine());
         int[] numberArray = new int[a];
-
         int swapNumber = 0;
         int temp = 0;
         for (int i = 0; i < a; i++) {
             numberArray[i] = Integer.parseInt(br.readLine());
         }
-
         for (int i = 0; i < numberArray.length; i++) {
             int minIndex = i;
             for (int j = i+1; j < numberArray.length; j++) {
@@ -34,21 +32,15 @@ public class Practice_240621_02 {
                    minIndex = j;
                }
             }
-
             if(minIndex != i && numberArray[minIndex]<numberArray[i]){
                 temp = numberArray[minIndex];
                 numberArray[minIndex] = numberArray[i];
                 numberArray[i]=temp;
-
             }
-
         }
-
         for (int i = 0; i < numberArray.length; i++) {
             System.out.println(numberArray[i]);
         }
-
-
     }
 
 
