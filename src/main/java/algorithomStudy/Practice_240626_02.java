@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 
 /**
- * 수 정렬하기
- * https://www.acmicpc.net/problem/2750
+ * 소수 단어
+ * https://www.acmicpc.net/problem/2153
  *
  */
 public class Practice_240626_02 {
