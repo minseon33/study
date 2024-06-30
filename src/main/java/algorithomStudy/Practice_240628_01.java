@@ -17,7 +17,7 @@ public class Practice_240628_01 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int number = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
-        int count = 0;ß
+        int count = 0;
         StringTokenizer st2 = new StringTokenizer(br.readLine());
         int[] array = new int[number];
         for (int i = 0; i < number; i++) {
