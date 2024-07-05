@@ -1,9 +1,6 @@
 package algorithomStudy;
 
-import org.springframework.stereotype.Indexed;
-
 import java.util.*;
-import java.util.stream.Collectors;
 
 // 크레인 인형뽑기 게임
 // https://school.programmers.co.kr/learn/courses/30/lessons/64061
