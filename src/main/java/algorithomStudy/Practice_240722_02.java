@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 /**
  * 바이러스
- * 레벨 : 실버3
+ * 레벨 : 실버3  (실패, 사유= 메모리초과)
  * https://www.acmicpc.net/problem/2606
  */
 public class Practice_240722_02 {
@@ -41,9 +41,7 @@ public class Practice_240722_02 {
     }
 
     public void DFS(Node node) {
-        if (node == null){
-            return;
-        }else {
+        if (node != null) {
             DFS(arr[node.lt]);
             count++;
             DFS(arr[node.rt]);
@@ -73,9 +71,6 @@ public class Practice_240722_02 {
     }
 
     // 메모리 초과... ㅠㅠㅠ
-    // 재귀를 활용하여 푸는 DFS는 스택영영의 메모리를 초과할 수 있다.
-    // 재귀를 활용하지 않고 DFS푸는 방법을 고민해보자. -> 내일...
-
 
 }
 
